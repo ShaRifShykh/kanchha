@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kanchha/values/constant_colors.dart';
 import 'package:kanchha/values/path.dart';
 
-class SignUpHelper extends ChangeNotifier {
+class AuthHelper extends ChangeNotifier {
   Widget head(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
@@ -77,21 +77,32 @@ class SignUpHelper extends ChangeNotifier {
     );
   }
 
-  Widget btn(BuildContext context) {
+  Widget signInbtn(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height / 15,
       decoration: BoxDecoration(
-        color: ConstantColors.medium,
-        borderRadius: BorderRadius.circular(6.0),
+        color: ConstantColors.whiteColor,
+        border: Border.all(
+          color: ConstantColors.strokeColor,
+        ),
+        boxShadow: const [
+          BoxShadow(
+            color: ConstantColors.shadowColor,
+            spreadRadius: 0,
+            blurRadius: 16.0,
+            offset: Offset(0, 3),
+          ),
+        ],
+        borderRadius: BorderRadius.circular(8.0),
       ),
       child: const Center(
         child: Text(
-          "Sign In / Sign Up",
+          "Sign In",
           style: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: 17.0,
-            color: ConstantColors.whiteColor,
+            color: ConstantColors.blueColor,
+            fontWeight: FontWeight.w600,
+            fontSize: 17,
           ),
         ),
       ),
@@ -179,7 +190,7 @@ class SignUpHelper extends ChangeNotifier {
           style: GoogleFonts.poppins(
             fontSize: 14.0,
             fontWeight: FontWeight.w500,
-            color: ConstantColors.black,
+            color: ConstantColors.fontColor2,
           ),
           children: [
             TextSpan(

@@ -66,7 +66,7 @@ class _HelpPageState extends State<HelpPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 25.0),
+                margin: const EdgeInsets.symmetric(vertical: 25.0),
                 width: MediaQuery.of(context).size.width,
                 height: 1,
                 color: const Color(0xffe5e5e5),

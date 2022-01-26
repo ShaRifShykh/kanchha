@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kanchha/router/route_constant.dart';
 import 'package:kanchha/router/routers.dart';
 import 'package:kanchha/values/branding_color.dart';
-import 'package:kanchha/views/auth/sign_up_helper.dart';
+import 'package:kanchha/views/auth/auth_helper.dart';
 import 'package:kanchha/views/extras/extra_helper.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +18,7 @@ class KanchhaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => SignUpHelper()),
+        ChangeNotifierProvider(create: (_) => AuthHelper()),
         ChangeNotifierProvider(create: (_) => ExtraHelper()),
       ],
       child: MaterialApp(

@@ -2,6 +2,8 @@ const String splashRoute = "splash";
 
 // Auth Routes
 const String signUpRoute = "signUpRoute";
+const String signInRoute = "signInRoute";
+const String otpRoute = "otpRoute";
 
 // Extra Router
 const String aboutRoute = "about";

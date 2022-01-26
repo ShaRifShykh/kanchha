@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kanchha/router/route_constant.dart';
+import 'package:kanchha/views/auth/otp_page.dart';
+import 'package:kanchha/views/auth/sign_in_page.dart';
 import 'package:kanchha/views/auth/sign_up_page.dart';
 import 'package:kanchha/views/extras/about_page.dart';
 import 'package:kanchha/views/extras/help_page.dart';
@@ -18,6 +20,14 @@ class Routers {
       case signUpRoute:
         return PageTransition(
             child: const SignUpPage(), type: PageTransitionType.rightToLeft);
+
+      case signInRoute:
+        return PageTransition(
+            child: const SignInPage(), type: PageTransitionType.rightToLeft);
+
+      case otpRoute:
+        return PageTransition(
+            child: const OtpPage(), type: PageTransitionType.rightToLeft);
 
       // Extras
       case aboutRoute:

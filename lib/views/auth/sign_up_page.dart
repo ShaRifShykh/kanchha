@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kanchha/router/route_constant.dart';
 import 'package:kanchha/values/constant_colors.dart';
-import 'package:kanchha/views/auth/sign_up_helper.dart';
+import 'package:kanchha/views/auth/auth_helper.dart';
+import 'package:kanchha/widgets/main_btn.dart';
 import 'package:provider/provider.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -22,9 +23,9 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Provider.of<SignUpHelper>(context, listen: false).head(context),
-            Provider.of<SignUpHelper>(context, listen: false).title(),
-            Provider.of<SignUpHelper>(context, listen: false).input(
+            Provider.of<AuthHelper>(context, listen: false).head(context),
+            Provider.of<AuthHelper>(context, listen: false).title(),
+            Provider.of<AuthHelper>(context, listen: false).input(
               context,
               const TextField(
                 decoration: InputDecoration(
@@ -39,14 +40,24 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             Padding(
               padding:
-                  const EdgeInsets.only(left: 50.0, right: 50.0, top: 40.0),
-              child: GestureDetector(
-                onTap: () {},
-                child: Provider.of<SignUpHelper>(context, listen: false)
-                    .btn(context),
+                  const EdgeInsets.only(left: 40.0, right: 40.0, top: 40.0),
+              child: MainBtn(
+                text: "Sign Up",
+                onPressed: () {},
               ),
             ),
-            Provider.of<SignUpHelper>(context, listen: false).orStyle(context),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 40.0, right: 40.0, top: 15.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, signInRoute);
+                },
+                child: Provider.of<AuthHelper>(context, listen: false)
+                    .signInbtn(context),
+              ),
+            ),
+            Provider.of<AuthHelper>(context, listen: false).orStyle(context),
             Padding(
               padding:
                   const EdgeInsets.only(left: 24.0, right: 24.0, top: 35.0),
@@ -55,7 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 children: [
                   GestureDetector(
                     onTap: () {},
-                    child: Provider.of<SignUpHelper>(context, listen: false)
+                    child: Provider.of<AuthHelper>(context, listen: false)
                         .socialBtn(
                       context,
                       const Icon(
@@ -67,7 +78,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   GestureDetector(
                     onTap: () {},
-                    child: Provider.of<SignUpHelper>(context, listen: false)
+                    child: Provider.of<AuthHelper>(context, listen: false)
                         .socialBtn(
                       context,
                       const Icon(
@@ -80,7 +91,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ],
               ),
             ),
-            Provider.of<SignUpHelper>(context).footerLinks(
+            Provider.of<AuthHelper>(context).footerLinks(
               TapGestureRecognizer()
                 ..onTap = () {
                   Navigator.pushNamed(context, tacRoute);
