@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kanchha/router/route_constant.dart';
+import 'package:kanchha/views/auth/detail_page.dart';
 import 'package:kanchha/views/auth/otp_page.dart';
 import 'package:kanchha/views/auth/sign_in_page.dart';
 import 'package:kanchha/views/auth/sign_up_page.dart';
@@ -7,6 +8,7 @@ import 'package:kanchha/views/extras/about_page.dart';
 import 'package:kanchha/views/extras/help_page.dart';
 import 'package:kanchha/views/extras/privacy_page.dart';
 import 'package:kanchha/views/extras/tac_page.dart';
+import 'package:kanchha/views/home/home_page.dart';
 import 'package:kanchha/views/splash/splash_page.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -28,6 +30,15 @@ class Routers {
       case otpRoute:
         return PageTransition(
             child: const OtpPage(), type: PageTransitionType.rightToLeft);
+
+      case detailRoute:
+        return PageTransition(
+            child: const DetailPage(), type: PageTransitionType.rightToLeft);
+
+      // Main
+      case homeRoute:
+        return PageTransition(
+            child: const HomePage(), type: PageTransitionType.rightToLeft);
 
       // Extras
       case aboutRoute:

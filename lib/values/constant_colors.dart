@@ -5,6 +5,7 @@ class ConstantColors {
   static const bgColor2 = Color(0xFFF8F8F8);
 
   static const strokeColor = Color(0xFFE2E2E2);
+  static const strokeColor2 = Color(0xFFF2F4FF);
 
   static const shadowColor = Color(0xFFF5FCFF);
 
@@ -15,6 +16,7 @@ class ConstantColors {
 
   static const Color fontColor = Color(0xFFACACAC);
   static const Color fontColor2 = Color(0xFF8695a5);
+  static const Color fontColor3 = Color(0xFFA59D9D);
 
   static const Color blueColor = Color(0xff748AF9);
   static const Color greyColor = Color(0xFFF4F4F4);

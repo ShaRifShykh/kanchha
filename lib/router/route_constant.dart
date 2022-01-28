@@ -4,8 +4,12 @@ const String splashRoute = "splash";
 const String signUpRoute = "signUpRoute";
 const String signInRoute = "signInRoute";
 const String otpRoute = "otpRoute";
+const String detailRoute = "detailRoute";
 
-// Extra Router
+// Main Routes
+const String homeRoute = "homeRoute";
+
+// Extra Routes
 const String aboutRoute = "about";
 const String ppRoute = "privacypolicy";
 const String tacRoute = "termsandconditions";

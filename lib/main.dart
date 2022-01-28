@@ -29,7 +29,7 @@ class KanchhaApp extends StatelessWidget {
           primarySwatch: brandingColor,
         ),
         onGenerateRoute: Routers.onGenerateRoute,
-        initialRoute: splashRoute,
+        initialRoute: homeRoute,
       ),
     );
   }

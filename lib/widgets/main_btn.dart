@@ -11,7 +11,7 @@ class MainBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        onPressed;
+        onPressed();
       },
       child: Container(
         width: MediaQuery.of(context).size.width,

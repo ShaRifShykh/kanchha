@@ -34,13 +34,13 @@ class AuthHelper extends ChangeNotifier {
     );
   }
 
-  Widget title() {
-    return const Padding(
-      padding:
-          EdgeInsets.only(left: 24.0, top: 35.0, bottom: 25.0, right: 20.0),
+  Widget title(String title) {
+    return Padding(
+      padding: const EdgeInsets.only(
+          left: 24.0, top: 35.0, bottom: 25.0, right: 20.0),
       child: Text(
-        "Enter Your Mobile Number",
-        style: TextStyle(
+        title,
+        style: const TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 18.0,
         ),
@@ -213,6 +213,99 @@ class AuthHelper extends ChangeNotifier {
           ],
         ),
       ),
+    );
+  }
+
+  // OTP Page
+  Widget otpTxt(TextField textField) {
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.symmetric(vertical: 2),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: ConstantColors.strokeColor2,
+          ),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: textField,
+      ),
+    );
+  }
+
+  Widget otpSubTitle(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 40.0),
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: ConstantColors.fontColor3,
+          fontSize: 15.0,
+        ),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  Widget otpGetAgain() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: const [
+          Text(
+            "Resend OTP",
+            style: TextStyle(
+              fontSize: 15.0,
+              color: ConstantColors.fontColor2,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget otpCountDown(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20.0),
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontSize: 22.0,
+          color: ConstantColors.blueColor,
+        ),
+      ),
+    );
+  }
+
+  Widget otpError() {
+    return const Padding(
+      padding: EdgeInsets.only(top: 10.0),
+      child: Text(
+        "Didn't Get it?",
+        style: TextStyle(
+          fontSize: 16.0,
+          color: ConstantColors.black,
+        ),
+      ),
+    );
+  }
+
+  // Detail Page
+  Widget detailInput(TextField textField) {
+    return Container(
+      margin: const EdgeInsets.only(top: 15.0, bottom: 60.0),
+      padding: const EdgeInsets.only(
+        left: 10,
+        top: 3,
+        bottom: 3,
+        right: 10.0,
+      ),
+      decoration: BoxDecoration(
+        color: ConstantColors.light,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: textField,
     );
   }
 }

@@ -24,7 +24,8 @@ class _SignUpPageState extends State<SignUpPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Provider.of<AuthHelper>(context, listen: false).head(context),
-            Provider.of<AuthHelper>(context, listen: false).title(),
+            Provider.of<AuthHelper>(context, listen: false)
+                .title("Enter Your Mobile Number"),
             Provider.of<AuthHelper>(context, listen: false).input(
               context,
               const TextField(
@@ -43,7 +44,13 @@ class _SignUpPageState extends State<SignUpPage> {
                   const EdgeInsets.only(left: 40.0, right: 40.0, top: 40.0),
               child: MainBtn(
                 text: "Sign Up",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    otpRoute,
+                    (route) => false,
+                  );
+                },
               ),
             ),
             Padding(

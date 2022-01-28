@@ -35,7 +35,8 @@ class _SignInPageState extends State<SignInPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Provider.of<AuthHelper>(context, listen: false).title(),
+            Provider.of<AuthHelper>(context, listen: false)
+                .title("Enter Your Mobile Number"),
             Provider.of<AuthHelper>(context, listen: false).input(
               context,
               const TextField(
@@ -54,7 +55,13 @@ class _SignInPageState extends State<SignInPage> {
                   const EdgeInsets.only(left: 40.0, right: 40.0, top: 40.0),
               child: MainBtn(
                 text: "Sign In",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    otpRoute,
+                    (route) => false,
+                  );
+                },
               ),
             ),
             Provider.of<AuthHelper>(context).footerLinks(
