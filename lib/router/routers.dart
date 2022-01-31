@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:kanchha/router/route_constant.dart';
+import 'package:kanchha/views/account/account_page.dart';
 import 'package:kanchha/views/auth/detail_page.dart';
 import 'package:kanchha/views/auth/otp_page.dart';
 import 'package:kanchha/views/auth/sign_in_page.dart';
 import 'package:kanchha/views/auth/sign_up_page.dart';
+import 'package:kanchha/views/bookings/bookings_page.dart';
 import 'package:kanchha/views/extras/about_page.dart';
 import 'package:kanchha/views/extras/help_page.dart';
 import 'package:kanchha/views/extras/privacy_page.dart';
 import 'package:kanchha/views/extras/tac_page.dart';
 import 'package:kanchha/views/home/home_page.dart';
+import 'package:kanchha/views/services/service_page.dart';
 import 'package:kanchha/views/splash/splash_page.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -40,7 +43,19 @@ class Routers {
         return PageTransition(
             child: const HomePage(), type: PageTransitionType.rightToLeft);
 
+      case servicesRoute:
+        return PageTransition(
+            child: const ServicePage(), type: PageTransitionType.rightToLeft);
+
       // Extras
+      case accountRoute:
+        return PageTransition(
+            child: const AccountPage(), type: PageTransitionType.rightToLeft);
+
+      case bookingsRoute:
+        return PageTransition(
+            child: const BookingsPage(), type: PageTransitionType.rightToLeft);
+
       case aboutRoute:
         return PageTransition(
             child: const AboutPage(), type: PageTransitionType.rightToLeft);
