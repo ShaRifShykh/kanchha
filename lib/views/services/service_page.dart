@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kanchha/router/route_constant.dart';
 import 'package:kanchha/values/constant_colors.dart';
 import 'package:kanchha/values/path.dart';
 import 'package:kanchha/views/services/service_helper.dart';
@@ -44,6 +45,9 @@ class _ServicePageState extends State<ServicePage> {
             children: [
               Provider.of<ServiceHelper>(context, listen: false).service(
                 context,
+                () {
+                  Navigator.pushNamed(context, singleServiceRoute);
+                },
                 Path.yellowCard2,
                 "Plumber",
                 "Lorem ipsum dolor sit amet, consectetur dipiscing elit. Integer et amet.",
@@ -52,6 +56,9 @@ class _ServicePageState extends State<ServicePage> {
               const SizedBox(height: 25),
               Provider.of<ServiceHelper>(context, listen: false).service(
                 context,
+                () {
+                  Navigator.pushNamed(context, singleServiceRoute);
+                },
                 Path.darkGreenCard,
                 "Painters",
                 "Lorem ipsum dolor sit amet, consectetur dipiscing elit. Integer et amet.",
@@ -60,6 +67,9 @@ class _ServicePageState extends State<ServicePage> {
               const SizedBox(height: 25),
               Provider.of<ServiceHelper>(context, listen: false).service(
                 context,
+                () {
+                  Navigator.pushNamed(context, singleServiceRoute);
+                },
                 Path.skyBlueCard2,
                 "Electricians",
                 "Lorem ipsum dolor sit amet, consectetur dipiscing elit. Integer et amet.",
@@ -68,6 +78,9 @@ class _ServicePageState extends State<ServicePage> {
               const SizedBox(height: 25),
               Provider.of<ServiceHelper>(context, listen: false).service(
                 context,
+                () {
+                  Navigator.pushNamed(context, singleServiceRoute);
+                },
                 Path.peachCard,
                 "Steel Fabricators",
                 "Lorem ipsum dolor sit amet, consectetur dipiscing elit. Integer et amet.",
@@ -76,6 +89,9 @@ class _ServicePageState extends State<ServicePage> {
               const SizedBox(height: 25),
               Provider.of<ServiceHelper>(context, listen: false).service(
                 context,
+                () {
+                  Navigator.pushNamed(context, singleServiceRoute);
+                },
                 Path.pinkCard,
                 "Carpenters",
                 "Lorem ipsum dolor sit amet, consectetur dipiscing elit. Integer et amet.",
@@ -84,6 +100,9 @@ class _ServicePageState extends State<ServicePage> {
               const SizedBox(height: 25),
               Provider.of<ServiceHelper>(context, listen: false).service(
                 context,
+                () {
+                  Navigator.pushNamed(context, singleServiceRoute);
+                },
                 Path.darkGreenCard2,
                 "Railings",
                 "Lorem ipsum dolor sit amet, consectetur dipiscing elit. Integer et amet.",

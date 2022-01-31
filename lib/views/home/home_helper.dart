@@ -208,34 +208,40 @@ class HomeHelper extends ChangeNotifier {
     );
   }
 
-  Widget service(BuildContext context, String bg, String title, String man) {
-    return Container(
-      width: MediaQuery.of(context).size.width / 2.3,
-      height: 80,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(bg),
-          fit: BoxFit.cover,
+  Widget service(BuildContext context, Function onPressed, String bg,
+      String title, String man) {
+    return GestureDetector(
+      onTap: () {
+        onPressed();
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width / 2.3,
+        height: 80,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(bg),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.circular(8.0),
         ),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Text(
-            title,
-            style: GoogleFonts.poppins(
-              fontSize: 11,
-              fontWeight: FontWeight.w600,
-              color: ConstantColors.whiteColor,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text(
+              title,
+              style: GoogleFonts.poppins(
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
+                color: ConstantColors.whiteColor,
+              ),
             ),
-          ),
-          Image.asset(
-            man,
-            scale: 1,
-          ),
-        ],
+            Image.asset(
+              man,
+              scale: 1,
+            ),
+          ],
+        ),
       ),
     );
   }

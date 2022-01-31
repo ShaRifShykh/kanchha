@@ -9,6 +9,9 @@ const String detailRoute = "detail";
 // Main Routes
 const String homeRoute = "home";
 const String servicesRoute = "services";
+const String singleServiceRoute = "singleService";
+const String serviceDetailRoute = "serviceDetail";
+const String checkoutRoute = "checkout";
 
 // Extra Routes
 const String accountRoute = "account";

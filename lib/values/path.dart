@@ -16,6 +16,17 @@ class Path {
   static const String h4 = "assets/images/h4.png";
   static const String footer = "assets/images/home-footer-01.png";
 
+  // Single Service
+  static const String thumbnail = "assets/images/ss1.png";
+  static const String thumbnail2 = "assets/images/ss2.png";
+
+  // Icons
+  static const String icon1 = "assets/images/si1.png";
+  static const String icon2 = "assets/images/si2.png";
+  static const String icon3 = "assets/images/si3.png";
+  static const String icon4 = "assets/images/si4.png";
+  static const String icon5 = "assets/images/si5.png";
+
   // Card
   static const String yellowCard = "assets/images/f.png";
   static const String skyBlueCard = "assets/images/e.png";

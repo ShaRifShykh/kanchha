@@ -6,12 +6,15 @@ import 'package:kanchha/views/auth/otp_page.dart';
 import 'package:kanchha/views/auth/sign_in_page.dart';
 import 'package:kanchha/views/auth/sign_up_page.dart';
 import 'package:kanchha/views/bookings/bookings_page.dart';
+import 'package:kanchha/views/checkout/checkout_page.dart';
 import 'package:kanchha/views/extras/about_page.dart';
 import 'package:kanchha/views/extras/help_page.dart';
 import 'package:kanchha/views/extras/privacy_page.dart';
 import 'package:kanchha/views/extras/tac_page.dart';
 import 'package:kanchha/views/home/home_page.dart';
+import 'package:kanchha/views/services/service_detail_page.dart';
 import 'package:kanchha/views/services/service_page.dart';
+import 'package:kanchha/views/services/single_service_page.dart';
 import 'package:kanchha/views/splash/splash_page.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -46,6 +49,20 @@ class Routers {
       case servicesRoute:
         return PageTransition(
             child: const ServicePage(), type: PageTransitionType.rightToLeft);
+
+      case singleServiceRoute:
+        return PageTransition(
+            child: const SingleServicePage(),
+            type: PageTransitionType.rightToLeft);
+
+      case serviceDetailRoute:
+        return PageTransition(
+            child: const ServiceDetailPage(),
+            type: PageTransitionType.rightToLeft);
+
+      case checkoutRoute:
+        return PageTransition(
+            child: const CheckoutPage(), type: PageTransitionType.rightToLeft);
 
       // Extras
       case accountRoute:

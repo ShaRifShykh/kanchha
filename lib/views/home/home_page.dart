@@ -133,12 +133,18 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Provider.of<HomeHelper>(context, listen: false).service(
                         context,
+                        () {
+                          Navigator.pushNamed(context, singleServiceRoute);
+                        },
                         Path.yellowCard,
                         "Plumber",
                         Path.yellowMan,
                       ),
                       Provider.of<HomeHelper>(context, listen: false).service(
                         context,
+                        () {
+                          Navigator.pushNamed(context, singleServiceRoute);
+                        },
                         Path.skyBlueCard,
                         "Electricians",
                         Path.skyBlueMan,
@@ -151,12 +157,18 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Provider.of<HomeHelper>(context, listen: false).service(
                         context,
+                        () {
+                          Navigator.pushNamed(context, singleServiceRoute);
+                        },
                         Path.lightGreenCard,
                         "Painters",
                         Path.lightGreenMan,
                       ),
                       Provider.of<HomeHelper>(context, listen: false).service(
                         context,
+                        () {
+                          Navigator.pushNamed(context, singleServiceRoute);
+                        },
                         Path.peachCard,
                         "Steel Fabricators",
                         Path.peachMan,
