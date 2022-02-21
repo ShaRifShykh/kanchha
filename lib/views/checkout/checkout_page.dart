@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kanchha/router/route_constant.dart';
 import 'package:kanchha/values/constant_colors.dart';
 import 'package:kanchha/values/path.dart';
 import 'package:kanchha/views/checkout/checkout_helper.dart';
@@ -161,8 +162,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
                 ),
               ),
               const SizedBox(height: 35.0),
-              Provider.of<CheckoutHelper>(context, listen: false)
-                  .offerNCoupon(() {}, Path.icon5, "Avail Offers / Coupon"),
+              Provider.of<CheckoutHelper>(context, listen: false).offerNCoupon(
+                () {
+                  Navigator.pushNamed(context, couponRoute);
+                },
+                Path.icon5,
+                "Avail Offers / Coupon",
+              ),
               const SizedBox(height: 50.0),
               Provider.of<CheckoutHelper>(context, listen: false).footerTotal(
                 "Item Total",
@@ -202,7 +208,16 @@ class _CheckoutPageState extends State<CheckoutPage> {
               const SizedBox(height: 20.0),
               MainBtn(
                 text: "Choose a Delivery Address",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, chooseDeliveryRoute);
+                },
+              ),
+              const SizedBox(height: 20.0),
+              MainBtn(
+                text: "Make Payment",
+                onPressed: () {
+                  Navigator.pushNamed(context, makePaymentRoute);
+                },
               ),
             ],
           ),

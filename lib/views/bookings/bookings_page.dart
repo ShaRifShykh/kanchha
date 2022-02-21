@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kanchha/router/route_constant.dart';
 import 'package:kanchha/values/constant_colors.dart';
 import 'package:kanchha/values/path.dart';
 import 'package:kanchha/views/bookings/bookings_helper.dart';
@@ -48,7 +49,9 @@ class _BookingsPageState extends State<BookingsPage> {
                 Path.icon2,
                 "Drainage Services",
                 "1 May, 2020",
-                () {},
+                () {
+                  Navigator.pushNamed(context, bookingDetailRoute);
+                },
               ),
               const SizedBox(height: 15),
               Provider.of<BookingsHelper>(context, listen: false).bookings(
@@ -56,7 +59,9 @@ class _BookingsPageState extends State<BookingsPage> {
                 Path.icon1,
                 "Installation And Repairment",
                 "1 May, 2020",
-                () {},
+                () {
+                  Navigator.pushNamed(context, bookingDetailRoute);
+                },
               ),
               const SizedBox(height: 15),
               Provider.of<BookingsHelper>(context, listen: false).bookings(
@@ -64,7 +69,9 @@ class _BookingsPageState extends State<BookingsPage> {
                 Path.icon2,
                 "Drainage Services",
                 "1 May, 2020",
-                () {},
+                () {
+                  Navigator.pushNamed(context, bookingDetailRoute);
+                },
               ),
               const SizedBox(height: 15),
               Provider.of<BookingsHelper>(context, listen: false).bookings(
@@ -72,7 +79,9 @@ class _BookingsPageState extends State<BookingsPage> {
                 Path.icon1,
                 "Installation And Repairment",
                 "1 May, 2020",
-                () {},
+                () {
+                  Navigator.pushNamed(context, bookingDetailRoute);
+                },
               ),
             ],
           ),

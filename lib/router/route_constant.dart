@@ -12,6 +12,12 @@ const String servicesRoute = "services";
 const String singleServiceRoute = "singleService";
 const String serviceDetailRoute = "serviceDetail";
 const String checkoutRoute = "checkout";
+const String couponRoute = "coupon";
+const String chooseDeliveryRoute = "chooseDelivery";
+const String chooseLocationRoute = "chooseLocation";
+const String makePaymentRoute = "makePayment";
+const String bookingConfirmationRoute = "bookingConfirmation";
+const String bookingDetailRoute = "bookingDetail";
 
 // Extra Routes
 const String accountRoute = "account";

@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:kanchha/router/route_constant.dart';
 import 'package:kanchha/views/account/account_page.dart';
+import 'package:kanchha/views/address/choose_address_page.dart';
+import 'package:kanchha/views/address/choose_location_page.dart';
 import 'package:kanchha/views/auth/detail_page.dart';
 import 'package:kanchha/views/auth/otp_page.dart';
 import 'package:kanchha/views/auth/sign_in_page.dart';
 import 'package:kanchha/views/auth/sign_up_page.dart';
+import 'package:kanchha/views/bookings/booking_detail_page.dart';
 import 'package:kanchha/views/bookings/bookings_page.dart';
 import 'package:kanchha/views/checkout/checkout_page.dart';
+import 'package:kanchha/views/checkout/coupon_page.dart';
+import 'package:kanchha/views/confirrm/booking_confirmation_page.dart';
 import 'package:kanchha/views/extras/about_page.dart';
 import 'package:kanchha/views/extras/help_page.dart';
 import 'package:kanchha/views/extras/privacy_page.dart';
 import 'package:kanchha/views/extras/tac_page.dart';
 import 'package:kanchha/views/home/home_page.dart';
+import 'package:kanchha/views/payment/make_payment_page.dart';
 import 'package:kanchha/views/services/service_detail_page.dart';
 import 'package:kanchha/views/services/service_page.dart';
 import 'package:kanchha/views/services/single_service_page.dart';
@@ -63,6 +69,35 @@ class Routers {
       case checkoutRoute:
         return PageTransition(
             child: const CheckoutPage(), type: PageTransitionType.rightToLeft);
+
+      case couponRoute:
+        return PageTransition(
+            child: const CouponPage(), type: PageTransitionType.rightToLeft);
+
+      case chooseDeliveryRoute:
+        return PageTransition(
+            child: const ChooseAddressPage(),
+            type: PageTransitionType.rightToLeft);
+
+      case chooseLocationRoute:
+        return PageTransition(
+            child: const ChooseLocationPage(),
+            type: PageTransitionType.rightToLeft);
+
+      case makePaymentRoute:
+        return PageTransition(
+            child: const MakePaymentPage(),
+            type: PageTransitionType.rightToLeft);
+
+      case bookingConfirmationRoute:
+        return PageTransition(
+            child: const BookingConfirmationPage(),
+            type: PageTransitionType.rightToLeft);
+
+      case bookingDetailRoute:
+        return PageTransition(
+            child: const BookingDetailPage(),
+            type: PageTransitionType.rightToLeft);
 
       // Extras
       case accountRoute:

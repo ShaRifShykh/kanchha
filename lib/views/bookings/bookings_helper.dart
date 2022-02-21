@@ -63,7 +63,7 @@ class BookingsHelper extends ChangeNotifier {
                       )
                     ],
                   ),
-                  const SizedBox(width: 50),
+                  const SizedBox(width: 20),
                   GestureDetector(
                     onTap: () {
                       onPressed();

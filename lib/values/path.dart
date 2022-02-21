@@ -26,6 +26,14 @@ class Path {
   static const String icon3 = "assets/images/si3.png";
   static const String icon4 = "assets/images/si4.png";
   static const String icon5 = "assets/images/si5.png";
+  static const String icon6 = "assets/images/hi9.png";
+  static const String icon7 = "assets/images/hi10.png";
+  static const String icon8 = "assets/images/hi11.png";
+  static const String icon9 = "assets/images/h12.png";
+  static const String icon10 = "assets/images/h13.png";
+  static const String icon11 = "assets/images/h14.png";
+
+  static const String bookingConfirm = "assets/images/booking.png";
 
   // Card
   static const String yellowCard = "assets/images/f.png";

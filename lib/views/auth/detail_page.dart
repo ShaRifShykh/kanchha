@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kanchha/router/route_constant.dart';
 import 'package:kanchha/values/constant_colors.dart';
 import 'package:kanchha/views/auth/auth_helper.dart';
 import 'package:kanchha/widgets/main_btn.dart';
@@ -46,7 +47,10 @@ class _DetailPageState extends State<DetailPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 40.0),
                     child: MainBtn(
                       text: "Continue",
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, homeRoute, (route) => false);
+                      },
                     ),
                   )
                 ],

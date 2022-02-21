@@ -1,3 +1,4 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,12 +49,13 @@ class AuthHelper extends ChangeNotifier {
     );
   }
 
-  Widget input(BuildContext context, TextField textField) {
+  Widget input(
+      BuildContext context, Widget countryTextField, Widget textField) {
     return Padding(
       padding: const EdgeInsets.only(left: 24.0, right: 24.0),
       child: Container(
+        width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height / 15,
-        padding: const EdgeInsets.only(left: 15.0, right: 15.0),
         decoration: BoxDecoration(
           color: ConstantColors.whiteColor,
           border: Border.all(
@@ -72,7 +74,12 @@ class AuthHelper extends ChangeNotifier {
           ],
           borderRadius: BorderRadius.circular(8.0),
         ),
-        child: textField,
+        child: Row(
+          children: [
+            countryTextField,
+            textField,
+          ],
+        ),
       ),
     );
   }
@@ -217,7 +224,7 @@ class AuthHelper extends ChangeNotifier {
   }
 
   // OTP Page
-  Widget otpTxt(TextField textField) {
+  Widget otpTxt(Widget textField) {
     return Expanded(
       child: Container(
         margin: const EdgeInsets.all(5),
@@ -229,6 +236,34 @@ class AuthHelper extends ChangeNotifier {
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: textField,
+      ),
+    );
+  }
+
+  Widget otpInputs(
+    BuildContext context,
+    TextEditingController editingController,
+    bool first,
+    bool last,
+  ) {
+    return TextField(
+      controller: editingController,
+      autofocus: true,
+      onChanged: (value) {
+        if (value.length == 1 && last == false) {
+          FocusScope.of(context).nextFocus();
+        }
+        if (value.isEmpty && first == false) {
+          FocusScope.of(context).previousFocus();
+        }
+      },
+      readOnly: false,
+      textAlign: TextAlign.center,
+      keyboardType: TextInputType.number,
+      maxLength: 1,
+      decoration: const InputDecoration(
+        counter: Offstage(),
+        border: InputBorder.none,
       ),
     );
   }

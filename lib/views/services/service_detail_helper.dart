@@ -66,7 +66,7 @@ class ServiceDetailHelper extends ChangeNotifier {
   Widget reviews(BuildContext context, String name, String review) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 120,
+      height: 150,
       decoration: BoxDecoration(
         color: const Color(0xFFF5F5F5),
         borderRadius: BorderRadius.circular(6),

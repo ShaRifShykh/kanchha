@@ -23,7 +23,7 @@ class SingleServiceHelper extends ChangeNotifier {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            width: MediaQuery.of(context).size.width / 1.75,
+            width: MediaQuery.of(context).size.width / 1.85,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

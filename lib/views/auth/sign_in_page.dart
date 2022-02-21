@@ -1,3 +1,4 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kanchha/router/route_constant.dart';
@@ -14,6 +15,9 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  late String _countryCode;
+  final TextEditingController _phoneNoController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,13 +43,29 @@ class _SignInPageState extends State<SignInPage> {
                 .title("Enter Your Mobile Number"),
             Provider.of<AuthHelper>(context, listen: false).input(
               context,
-              const TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Enter Mobile Number",
-                  hintStyle: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14.0,
+              Expanded(
+                flex: 2,
+                child: CountryCodePicker(
+                  flagWidth: 20,
+                  initialSelection: "IN",
+                  alignLeft: true,
+                  onChanged: (value) {
+                    _countryCode = value.toString();
+                  },
+                ),
+              ),
+              Expanded(
+                flex: 4,
+                child: TextField(
+                  controller: _phoneNoController,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Enter Mobile Number",
+                    hintStyle: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14.0,
+                    ),
                   ),
                 ),
               ),
