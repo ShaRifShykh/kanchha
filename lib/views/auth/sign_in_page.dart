@@ -1,7 +1,9 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:kanchha/application/services/auth_service.dart';
 import 'package:kanchha/router/route_constant.dart';
+import 'package:kanchha/values/common.dart';
 import 'package:kanchha/values/constant_colors.dart';
 import 'package:kanchha/views/auth/auth_helper.dart';
 import 'package:kanchha/widgets/main_btn.dart';
@@ -17,6 +19,27 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   late String _countryCode;
   final TextEditingController _phoneNoController = TextEditingController();
+
+  _loginUser() async {
+    if (_phoneNoController.text.isNotEmpty && _countryCode != "") {
+      await Provider.of<AuthService>(context, listen: false)
+          .login(context, _countryCode + _phoneNoController.text)
+          .then((value) {
+        if (value != null) {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            otpRoute,
+            (route) => false,
+          );
+        }
+      });
+    } else {
+      Common().bottomError(
+        context,
+        "Phone Code and Phone Number can't be empty!",
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +70,6 @@ class _SignInPageState extends State<SignInPage> {
                 flex: 2,
                 child: CountryCodePicker(
                   flagWidth: 20,
-                  initialSelection: "IN",
                   alignLeft: true,
                   onChanged: (value) {
                     _countryCode = value.toString();
@@ -76,11 +98,7 @@ class _SignInPageState extends State<SignInPage> {
               child: MainBtn(
                 text: "Sign In",
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    otpRoute,
-                    (route) => false,
-                  );
+                  _loginUser();
                 },
               ),
             ),

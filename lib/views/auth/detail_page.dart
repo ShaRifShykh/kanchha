@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kanchha/application/services/auth_service.dart';
 import 'package:kanchha/router/route_constant.dart';
+import 'package:kanchha/values/common.dart';
 import 'package:kanchha/values/constant_colors.dart';
 import 'package:kanchha/views/auth/auth_helper.dart';
 import 'package:kanchha/widgets/main_btn.dart';
@@ -13,6 +15,26 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  TextEditingController nameController = TextEditingController();
+
+  _setName() async {
+    if (nameController.text.isNotEmpty) {
+      await Provider.of<AuthService>(context, listen: false)
+          .setName(context, nameController.text)
+          .then((value) {
+        if (value != null) {
+          Navigator.pushNamedAndRemoveUntil(
+              context, homeRoute, (route) => false);
+        }
+      });
+    } else {
+      Common().bottomError(
+        context,
+        "Name can't be empty!",
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +59,10 @@ class _DetailPageState extends State<DetailPage> {
                     "Enter Your Name",
                   ),
                   Provider.of<AuthHelper>(context, listen: false).detailInput(
-                    const TextField(
-                      decoration: InputDecoration(
+                    TextField(
+                      controller: nameController,
+                      keyboardType: TextInputType.name,
+                      decoration: const InputDecoration(
                         border: InputBorder.none,
                       ),
                     ),
@@ -48,8 +72,7 @@ class _DetailPageState extends State<DetailPage> {
                     child: MainBtn(
                       text: "Continue",
                       onPressed: () {
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, homeRoute, (route) => false);
+                        _setName();
                       },
                     ),
                   )

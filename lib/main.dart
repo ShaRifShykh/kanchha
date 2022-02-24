@@ -2,6 +2,7 @@ import 'package:country_code_picker/country_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kanchha/application/services/auth_service.dart';
+import 'package:kanchha/application/storage/local_storage.dart';
 import 'package:kanchha/router/route_constant.dart';
 import 'package:kanchha/router/routers.dart';
 import 'package:kanchha/values/branding_color.dart';
@@ -20,7 +21,8 @@ import 'package:kanchha/views/services/service_helper.dart';
 import 'package:kanchha/views/services/single_service_helper.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const KanchhaApp());
 }
 

@@ -4,7 +4,7 @@ import 'package:kanchha/values/constant_colors.dart';
 import 'package:kanchha/values/path.dart';
 
 class HomeHelper extends ChangeNotifier {
-  Widget drawerHeader(BuildContext context) {
+  Widget drawerHeader(BuildContext context, String phoneNumber) {
     return SizedBox(
       height: 200,
       child: DrawerHeader(
@@ -47,8 +47,8 @@ class HomeHelper extends ChangeNotifier {
                           fontSize: 25,
                         ),
                       ),
-                      const Text(
-                        "+91 3456467888",
+                      Text(
+                        phoneNumber,
                         style: TextStyle(
                           color: ConstantColors.fontColor2,
                         ),
@@ -93,35 +93,40 @@ class HomeHelper extends ChangeNotifier {
     );
   }
 
-  Widget drawerFooter() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Icon(
-          Icons.logout,
-          color: Color(0xff748AF9),
-          size: 30.0,
-        ),
-        const SizedBox(width: 10),
-        Text(
-          "Logout",
-          style: GoogleFonts.poppins(
-            color: const Color(0xff748AF9),
-            fontSize: 18.0,
+  Widget drawerFooter(Function onPressed) {
+    return GestureDetector(
+      onTap: () {
+        onPressed();
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(
+            Icons.logout,
+            color: Color(0xff748AF9),
+            size: 30.0,
           ),
-        )
-      ],
+          const SizedBox(width: 10),
+          Text(
+            "Logout",
+            style: GoogleFonts.poppins(
+              color: const Color(0xff748AF9),
+              fontSize: 18.0,
+            ),
+          )
+        ],
+      ),
     );
   }
 
-  Widget head(BuildContext context, TextField textField) {
+  Widget head(BuildContext context, String name, TextField textField) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Hey Komal!",
+            "Hey $name!",
             style: GoogleFonts.poppins(
               fontSize: 18.0,
               fontWeight: FontWeight.w600,

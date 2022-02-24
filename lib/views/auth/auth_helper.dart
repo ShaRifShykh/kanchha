@@ -1,4 +1,3 @@
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -282,17 +281,22 @@ class AuthHelper extends ChangeNotifier {
     );
   }
 
-  Widget otpGetAgain() {
+  Widget otpGetAgain(Function onPressed) {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: const [
-          Text(
-            "Resend OTP",
-            style: TextStyle(
-              fontSize: 15.0,
-              color: ConstantColors.fontColor2,
+        children: [
+          GestureDetector(
+            onTap: () {
+              onPressed();
+            },
+            child: const Text(
+              "Resend OTP",
+              style: TextStyle(
+                fontSize: 15.0,
+                color: ConstantColors.fontColor2,
+              ),
             ),
           ),
         ],

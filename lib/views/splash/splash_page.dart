@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:kanchha/application/storage/local_storage.dart';
+import 'package:kanchha/application/storage/storage_keys.dart';
 import 'package:kanchha/router/route_constant.dart';
 import 'package:kanchha/values/path.dart';
 
@@ -15,13 +17,15 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Timer(
-      const Duration(seconds: 3),
-      () => Navigator.pushReplacementNamed(
-        context,
-        signUpRoute,
-      ),
-    );
+    LocalStorage.getItem(TOKEN).then((value) {
+      Timer(
+        const Duration(seconds: 3),
+        () => Navigator.pushReplacementNamed(
+            context, value != null ? homeRoute : signUpRoute
+            // signUpRoute,
+            ),
+      );
+    });
   }
 
   @override

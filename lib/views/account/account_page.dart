@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kanchha/application/services/auth_service.dart';
 import 'package:kanchha/values/constant_colors.dart';
 import 'package:kanchha/views/account/account_helper.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,26 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
+  bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserData();
+  }
+
+  getUserData() async {
+    if (Provider.of<AuthService>(context, listen: false).user == null) {
+      setState(() {
+        _isLoading = true;
+      });
+      await Provider.of<AuthService>(context, listen: false).getUser();
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,51 +58,61 @@ class _AccountPageState extends State<AccountPage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Provider.of<AccountHelper>(context, listen: false).header(
-              "+91 3456467888",
-              () {},
+      body: _isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : SingleChildScrollView(
+              child: Column(
+                children: [
+                  Provider.of<AccountHelper>(context, listen: false).header(
+                    Provider.of<AuthService>(context, listen: false)
+                        .user
+                        .phoneNumber,
+                    () {},
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 18,
+                    color: const Color(0xFFF2F2F2),
+                  ),
+                  Provider.of<AccountHelper>(context, listen: false).section(
+                    "Name",
+                    () {},
+                    Provider.of<AuthService>(context, listen: false)
+                        .user
+                        .fullName,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 10,
+                    color: const Color(0xFFF2F2F2),
+                  ),
+                  Provider.of<AccountHelper>(context, listen: false).section(
+                    "Email Address",
+                    () {},
+                    Provider.of<AuthService>(context, listen: false).user.email,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 10,
+                    color: const Color(0xFFF2F2F2),
+                  ),
+                  Provider.of<AccountHelper>(context, listen: false).section(
+                    "Phone Number",
+                    () {},
+                    Provider.of<AuthService>(context, listen: false)
+                        .user
+                        .phoneNumber,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 10,
+                    color: const Color(0xFFF2F2F2),
+                  ),
+                ],
+              ),
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 18,
-              color: const Color(0xFFF2F2F2),
-            ),
-            Provider.of<AccountHelper>(context, listen: false).section(
-              "Name",
-              () {},
-              "Kamal Vishe",
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 10,
-              color: const Color(0xFFF2F2F2),
-            ),
-            Provider.of<AccountHelper>(context, listen: false).section(
-              "Email Address",
-              () {},
-              "kamalvishe321@gmail.com",
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 10,
-              color: const Color(0xFFF2F2F2),
-            ),
-            Provider.of<AccountHelper>(context, listen: false).section(
-              "Phone Number",
-              () {},
-              "7350650310",
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 10,
-              color: const Color(0xFFF2F2F2),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
