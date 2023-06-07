@@ -11,7 +11,7 @@ environment:
 dependencies:
   country_code_picker: ^2.0.2
   cupertino_icons: ^1.0.2
-  dio: ^4.0.4
+  dio: ^5.0.0
   flutter:
     sdk: flutter
   font_awesome_flutter: ^9.2.0
